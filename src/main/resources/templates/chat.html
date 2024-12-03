@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ollama Chat</title>
+</head>
+<body>
+<h1>Ollama ChatGPT Clone</h1>
+<form method="post" th:action="@{/chat}">
+    <label for="question">Your Question:</label>
+    <input type="text" id="question" name="question" required>
+    <button type="submit">Ask</button>
+</form>
+<h2>Chat History:</h2>
+<ul>
+    <li th:each="entry : ${chatHistory}">
+        <strong>You:</strong> <span th:text="${entry.question}"></span><br>
+        <strong>AI:</strong> <span th:text="${entry.response}"></span>
+    </li>
+</ul>
+</body>
+</html>
